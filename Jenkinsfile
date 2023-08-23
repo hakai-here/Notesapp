@@ -20,17 +20,7 @@ pipeline {
       }
     }
 
-    stage('Push') {
-      steps {
-        echo "Pushing the code to dockerhub"
-        withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")]){
-                sh "docker tag notesapp ${env.dockerHubUser}/notesapp:latest"
-                sh "docker login -u ${env.dockerHubUser} -p '${env.dockerHubPass}'"
-                sh "docker push ${env.dockerHubUser}/notesapp:latest"
-                }
-      }
-    }
-
+    
     stage('Deploy') {
       steps {
         echo "Deploying the code"
