@@ -1,8 +1,5 @@
 pipeline {
-  parameters {
-    booleanParam(name: 'CleanAllBuild', defaultValue: true, description: 'Toggle this value to clean the builds ')
-    booleanParam(name: 'StopTheBuild',defaultValue: true,description: 'Toggle this value to Stop the current running build')
-  }
+ 
   agent any
 
   stages {
