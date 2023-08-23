@@ -30,16 +30,4 @@ pipeline {
 
   }
 
-  post {
-    always {
-      script {
-        if (params.CleanAllBuild) {
-          def proc = "docker system prune -af"
-          sh(returnStatus: true, script: proc)
-
-        }
-      }
-    }
-  }
-
 }
